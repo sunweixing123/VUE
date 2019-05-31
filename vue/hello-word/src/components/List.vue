@@ -15,7 +15,7 @@
 <script>
   export default {
     name: 'List',
-    data(){
+    data() {
       return {
         name: '',
         newId: 3,

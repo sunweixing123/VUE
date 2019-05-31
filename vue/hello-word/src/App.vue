@@ -3,21 +3,24 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/>
     <Test /> -->
-    <List />
+    <!-- <List /> -->
+    <TodoList />
   </div>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 // import Test from './components/Test.vue'
-import List from './components/List.vue'
+// import List from './components/List.vue'
+import TodoList from './components/TodoList.vue'
 
 export default {
   name: 'app',
   components: {
     // HelloWorld,
     // Test,
-    List,
+    // List,
+    TodoList,
 
   }
 }
