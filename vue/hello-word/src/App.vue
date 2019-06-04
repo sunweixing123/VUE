@@ -4,7 +4,8 @@
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/>
     <Test /> -->
     <!-- <List /> -->
-    <TodoList />
+    <!-- <TodoList /> -->
+    <Directive />
   </div>
 </template>
 
@@ -12,7 +13,8 @@
 // import HelloWorld from './components/HelloWorld.vue'
 // import Test from './components/Test.vue'
 // import List from './components/List.vue'
-import TodoList from './components/TodoList.vue'
+// import TodoList from './components/TodoList.vue'
+import Directive from './components/Directive.vue'
 
 export default {
   name: 'app',
@@ -20,7 +22,8 @@ export default {
     // HelloWorld,
     // Test,
     // List,
-    TodoList,
+    // TodoList,
+    Directive,
 
   }
 }
