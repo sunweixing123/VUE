@@ -1,5 +1,8 @@
 <template>
-    <div id="hook-arguments-example" v-demo:foo.a.b="message"></div>
+    <!-- <div id="hook-arguments-example" v-demo:foo.a.b="message"></div> -->
+    <!-- <p>Scroll down the page</p> -->
+    <p v-test1:left="[testLeft]">I’ll now be offset from the left instead of the top</p>
+
 </template>
 
 
@@ -9,7 +12,8 @@ export default {
     name: 'Directive',
     data() {
         return {
-            message: 'hello!'
+            message: 'hello!',
+            testLeft: '500', //可以自定义
         }
     },
      directives: {
@@ -27,7 +31,7 @@ export default {
         },
         demo: {
             inserted(el, binding, vnode) {
-                var s = JSON.stringify
+                var s = JSON.stringify;
                 el.innerHTML =
                 'name: '       + s(binding.name) + '<br>' +
                 'value: '      + s(binding.value) + '<br>' +
@@ -36,7 +40,15 @@ export default {
                 'modifiers: '  + s(binding.modifiers) + '<br>' +
                 'vnode keys: ' + Object.keys(vnode).join(', ')
             }
-        }
+        },
+        test1: {
+            inserted(el, binding) {
+                el.style.position = 'fixed';
+                const s = (binding.arg == 'left' ? 'left' : 'top');
+                el.style[s] = binding.value + 'px';
+
+            }
+        },
     }
 }
 
