@@ -46,7 +46,7 @@ export default {
                 el.style.position = 'fixed';
                 const s = (binding.arg == 'left' ? 'left' : 'top');
                 el.style[s] = binding.value + 'px';
-
+                //binding包含指令信息的对象，el指令所绑定的元素
             }
         },
     }

@@ -5,7 +5,8 @@
     <Test /> -->
     <!-- <List /> -->
     <!-- <TodoList /> -->
-    <Directive />
+    <!-- <Directive /> -->
+    <Feather />
   </div>
 </template>
 
@@ -14,7 +15,8 @@
 // import Test from './components/Test.vue'
 // import List from './components/List.vue'
 // import TodoList from './components/TodoList.vue'
-import Directive from './components/Directive.vue'
+// import Directive from './components/Directive.vue'
+import Feather from './components/Feather.vue'
 
 export default {
   name: 'app',
@@ -23,7 +25,8 @@ export default {
     // Test,
     // List,
     // TodoList,
-    Directive,
+    // Directive,
+    Feather,
 
   }
 }
