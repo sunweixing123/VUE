@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function add(num) {
+            var sum = 0;
+            sum += num;
+            return function realAdd(addNum) {
+                if (arguments.length === 0) {
+                    return sum;
+                }else {
+                    sum += addNum;
+                    return realAdd;
+                }
+            }
+        }
+
+        //测试连续调用
+        function follow(name) {
+            var testName = '';
+            return function newFollow(newName) {
+                console.log(arguments);
+                console.log('28282828', newName);
+                if (arguments.length === 0) {
+                    console.log('arsg=0', newName, arguments);
+                    return testName; 
+                //testName会有undefined的情况(undefined是最后一次调用())
+                } else {
+                    console.log('newName', newName);
+                    testName = newName;
+                    return newFollow;
+                }
+            }
+        }
+        console.log(follow('123')('234')('345')());
+
+        // function follow(name) {
+        //     // var testName = '';
+        //     return function newFollow(newName) {
+        //         // console.log(newName);
+        //         if (arguments.length === 0) {
+        //             console.log('newName', newName);
+        //             return newName;
+        //         } else {
+        //             // console.log('newName', newName);
+        //             // testName = newName;
+        //             return newFollow;
+        //         }
+        //     }
+        // }
+        console.log(follow('123')('234')('345')());
+
+
+        // function add(num){
+        //     var sum=0;
+        //     sum= sum+num;
+        //     return function tempFun(numB){
+        //         if(arguments.length===0){
+        //             return sum;
+        //         }else{
+        //             sum= sum+ numB;
+        //             return tempFun;
+        //         }
+        //     }
+        // }
+        console.log(add(2)(3)(4)(5)());
+        
+        
+        
+        
+    </script>
+</body>
+</html>

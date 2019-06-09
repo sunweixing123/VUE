@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+      var obj1 = {
+          name: '123',
+          age: '18',
+      }
+      function defineReacive(obj, key, val) {
+          Object.defineProperty(obj, key, {
+              enumerable: true, //属性可枚举
+              configurable: true, //属性可被修改或删除
+              get: function reactiveGetter() {
+                  console.log('触发get了');
+                  return val;
+              },
+              set: function reactiveSetter(newVal) {
+                  if (newVal == val) {
+                      return;
+                  }
+                  console.log('试图更新了！！！');
+              }
+          })
+      };   
+    //   function observer (value) {
+    //       console.log('observer运行')
+    //     if (!value || (typeof value !== 'object')) {
+    //       return;
+    //     }
+    //     Object.keys(value).forEach((key) => {
+    //         defineReacive(value, key, value[key]);
+    //     });
+    //   }
+
+
+
+    
+      Object.keys(obj1).forEach((key) => {
+        defineReacive(obj1, key, obj1[key]);
+      });
+      console.log(obj1.age);
+      obj1.name = 'test';
+
+
+    // class Vue {
+    // /* Vue构造类 */
+    //     constructor(options) {
+    //       this._data = options.data;
+    //       observer(this._data);
+    //     }
+    // }
+
+    // let o = new Vue({
+    //   data: {
+    //     test: "I am test."
+    //   }
+    // });
+    // o._data.test = "hello,world."; /* 视图更新啦～ */
+
+        
+        
+    </script>
+</body>
+</html>
