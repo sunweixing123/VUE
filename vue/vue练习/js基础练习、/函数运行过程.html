@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function test() {
+            /*
+            找到当前上下文中的调用函数的代码
+
+在执行被调用的函数体中的代码以前，开始创建执行上下文
+
+进入第一个阶段-建立阶段:
+
+建立variableObject对象:
+
+建立arguments对象，检查当前上下文中的参数，建立该对象下的属性以及属性值
+
+检查当前上下文中的函数声明：
+
+每找到一个函数声明，就在variableObject下面用函数名建立一个属性，属性值就是指向该函数在内存中的地址的一个引用
+
+如果上述函数名已经存在于variableObject下，那么对应的属性值会被新的引用所覆盖。
+
+检查当前上下文中的变量声明：
+
+：：：标记：：：每找到一个变量的声明，就在variableObject下，用变量名建立一个属性，属性值为undefined。
+
+：：：标记：：：：如果该变量名已经存在于variableObject属性中，直接跳过(防止指向函数的属性的值被变量属性覆盖为undefined)，原属性值不会被修改。
+
+初始化作用域链
+
+确定上下文中this的指向对象
+
+代码执行阶段:
+
+执行函数体中的代码，一行一行地运行代码，给variableObject中的变量属性赋值。
+            
+            */
+            console.log(typeof(a)); //输出undefined    博客链接https://www.cnblogs.com/MinLee/p/5862271.html
+            console.log(typeof(b)); //输出function
+            var a = 1;
+            function b () {
+                return 123;
+            }
+        }    
+        test();
+
+        (function () {
+            console.log('测试立即调用');
+        })()
+        
+        
+        
+    </script>
+</body>
+</html>
