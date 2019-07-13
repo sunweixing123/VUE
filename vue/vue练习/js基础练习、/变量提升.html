@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(this.a);//console.log(a)会报错
+        (function test1() {
+            console.log(window.a);
+            aa();
+            // test1();
+            function aa() {
+                console.log('执行函数了');
+            }
+            var test1 = function() {
+                console.log('变量赋值函数执行了'); //会报错
+            }
+        })()
+
+
+
+
+        function text6() {
+            var a = 1;
+            function b() {//函数会提升到变量之前
+                a = 10;//
+                return;
+                function a() {}
+            }
+            b();
+            console.log(a); // ？
+        }
+        text6();
+
+        function text6s() {
+            function b() {//函数会提升到变量之前
+                var a;
+                a = 10;//
+                return;
+                function a() {}
+            }
+            var a = 1;
+           
+            b();
+            log(a); // ？   结果是1
+        }
+
+        
+    </script>
+</body>
+</html>
