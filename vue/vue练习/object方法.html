@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj1 = {
+            name: 'sunweixing',
+            age: 23,
+        }
+
+        console.log(Object.getOwnPropertyDescriptor(obj1, 'name')); //
+        /*
+        configurable: true    当且仅当指定对象的属性描述可以被改变或者属性可被删除时，为true。
+        enumerable: true    当且仅当指定对象的属性可以被枚举出时，为 true。
+        value: "sunweixing"   该属性的值(仅针对数据属性描述符有效)
+        writable: true   当且仅当属性的值可以被改变时为true。(仅针对数据属性描述有效)
+
+
+         Object.defineProperty可以设置这些属性值
+        */
+
+        Object.defineProperty(obj1, 'age', {
+            // value : 23,
+            // writable : true, //是否可以改变
+            // enumerable : true, //是否可以枚举
+            // configurable : true, //是否可以被改变或删除
+
+
+ //分割线 //分割线 //分割线 //分割线 //分割线 //分割线 //分割线  
+ //上下不能混合设置
+
+
+            get: function() {
+                console.log('get');
+            },
+            set: function() {
+                console.log('set');
+            }
+        })
+        obj1.age = 99;
+        // delete obj1.age;
+        console.log(obj1.age);
+        function test() {
+            this.name = 'test';
+            this.age = 134;
+        }
+        var test1 = new test();
+        test1.prototype = test.prototype;
+        console.log(test1.__proto__ == test1.constructor.prototype);
+    
+    
+    
+    
+    </script>
+</body>
+</html>
