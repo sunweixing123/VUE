@@ -8,7 +8,7 @@
 </head>
 <body>
     <script>
-        //函数科里化就是能够实现连续调用，每次return一个function
+        //函数科里化就是能够实现连续调用，每次return一个function，每次调用的时候都能保存之前的参数（相当于闭包，没有释放变量）
         function add(num) {
             var sum = 0;
             sum += num;
