@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj1 = {
+            a: 123,
+            b: 456,
+        };
+        var arr1 = [1, 2, 3];
+        //instanceof可以用来判断null类型是否为object，typeof判断null时返回object
+        console.log(typeof(null));
+        console.log(null instanceof Object);
+        console.log(Array instanceof Object);
+        console.log([] instanceof Object);
+        console.log(Function instanceof Object);
+        console.log(undefined instanceof Object);
+
+        console.log(Object.prototype.toString.call(null));
+        console.log(Object.prototype.toString.call(Array));//输出Function是因为这是构造函数
+        console.log(Object.prototype.toString.call(Object));//输出Function是因为这是构造函数
+        console.log(Object.prototype.toString.call(Function));
+        console.log(Object.prototype.toString.call(obj1));
+        console.log(Object.prototype.toString.call(arr1));
+
+
+        //闭包
+        var arr2 = [];
+        for (var i=0; i<5; i++) {
+            arr2[i] = function() {
+                return i;
+            };
+            
+        }
+        console.log(arr2);
+
+        function returnArr() {
+            for (var i=0; i<5; i++) {
+                setTimeout((function(x) {
+                    return function() {
+                        console.log(x);
+                    }
+                })(i), 100)
+            }
+        }
+
+        setTimeout((function(x) {
+           return function() {
+               console.log(x);
+           }
+        })(4), 200)
+        
+        returnArr();
+
+
+        function test1() {
+            console.log('test1');
+        }
+
+        setTimeout('test1()', 2000);//尽量不用参数为字符串，
+        //参数为字符串相当于new一个function然后把字符串中的内容放在function中执行
+        //相当于  function() {test1()};
+
+
+    
+    
+    
+    </script>
+</body>
+</html>
