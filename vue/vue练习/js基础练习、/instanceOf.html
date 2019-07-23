@@ -64,7 +64,9 @@
 
         setTimeout('test1()', 2000);//尽量不用参数为字符串，
         //参数为字符串相当于new一个function然后把字符串中的内容放在function中执行
-        //相当于  function() {test1()};
+        //相当于  function() {test1()}; 类似eval函数
+
+        eval('console.log(123)');
 
 
     
