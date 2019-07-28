@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const str1 = '1,2,3,4';
+        const arr2 = [1, 2, 3, 4];
+        const arr1 = str1.split(','); //split默认参数应该是逗号吧
+        console.log('arr1', arr1);//应该是[1, 2, 3, 4] ，实际上结果是['1, 2, 3, 4'];
+        console.log('arr1[0]', arr1[0]);
+        console.log('arr2', arr2);
+        console.log('arr1 == arr2', arr1 == arr2);
+        console.log('arr1 === arr2', arr1 === arr2);
+        console.log(Object.prototype.toString.call(arr1));
+    </script>
+</body>
+</html>
